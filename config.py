@@ -4,7 +4,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config(object):
     INSTANCE_NAME = "europe-central2:devel-sql"
     PROJECT_ID = "devel-12345"
-    PUBLIC_IP_ADDRESS = "127.0.0.1:3306"  #"127.0.0.1:3306"
+    PUBLIC_IP_ADDRESS = "/cloudsql/devel-12345:europe-central2:devel-sql"  #"127.0.0.1:3306"
     PASSWORD = "Bonvolu53"
     DBNAME = "Data"
 
