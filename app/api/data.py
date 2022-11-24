@@ -78,7 +78,6 @@ def post_inputdata():
     jsondata = request.get_json()
     print(jsondata)
     inputdata = InputData(jsondata)
-    #inputdata.from_dict(jsondata)
     print(inputdata.valve_value)
     db.session.add(inputdata)
     db.session.commit()

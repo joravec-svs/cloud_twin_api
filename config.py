@@ -6,7 +6,6 @@ class Config():
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'svs-fem-secret-key'
     STATIC_FOLDER = 'static'
     TEMPLATES_FOLDER = 'templates'
-    #SOCKET_PATH = "/cloudsql/devel-12345:europe-central2:devel-sql" 
     
 class ProdConfig(Config):
     FLASK_DEBUG = False
