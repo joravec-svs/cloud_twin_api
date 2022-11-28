@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 class InputData(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     valve_value = db.Column(db.Float)
-    
+
     def __init__(self,data):
         for k,v in data.items():
             if k in vars(InputData):
