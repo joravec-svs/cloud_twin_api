@@ -3,7 +3,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config():
     """Base config."""
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'svs-fem-secret-key'
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'svs-fem-secret-key1234'
     STATIC_FOLDER = 'static'
     TEMPLATES_FOLDER = 'templates'
 
