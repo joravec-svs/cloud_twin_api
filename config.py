@@ -6,7 +6,7 @@ class Config():
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'svs-fem-secret-key'
     STATIC_FOLDER = 'static'
     TEMPLATES_FOLDER = 'templates'
-    
+
 class ProdConfig(Config):
     FLASK_DEBUG = False
     TESTING = False
@@ -21,9 +21,9 @@ class ProdConfig(Config):
 class DevConfig(Config):
     FLASK_DEBUG = True
     TESTING = True
-    
+
     PUBLIC_IP_ADDRESS = "127.0.0.1:3306"
-    DB_PASS = os.environ.get('PASSWORD')
+    DB_PASS = os.environ.get('DB_PASS')
     DB_USER = os.environ.get('DB_USER')
     DBNAME = os.environ.get('DBNAME')
     SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{DB_USER}:{DB_PASS}@{PUBLIC_IP_ADDRESS}/{DBNAME}"

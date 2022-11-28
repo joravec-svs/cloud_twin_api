@@ -1,12 +1,12 @@
-# DTwin Web - Digital Twin Web application
+# Cloud twin API - Cloud Twin Web application
 
     Type: Product
     Responsible: Jakub Oravec
-    Description: cloud web app for digital twins data data storage
+    Description: cloud web app for digital twins data storage
     Platform: Python 3.1.0
     Participants: -
     Customer/License: free
-    Current Version: 0.5 beta (2022-11-24)
+    Current Version: 0.1 alpha (2022-11-25)
 
 ## Dependencies
 
@@ -24,7 +24,7 @@
 
     N/A
 
-## Release Notes - 2022-07-01 - Version 0.5 Beta
+## Release Notes - 2022-11-25 - Version 0.1 Alpha
 
     note: test version
     new: -
@@ -33,4 +33,4 @@
 
 ## Future Improvements (Nice-to-Have)
 
-    - graphics and  
+    - everything 
