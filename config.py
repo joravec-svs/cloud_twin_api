@@ -17,6 +17,9 @@ class ProdConfig(Config):
     DBNAME = os.environ.get('DBNAME')
     SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{DB_USER}:{DB_PASS}@/{DBNAME}?unix_socket=/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}"
     SQLALCHEMY_TRACK_MODIFICATIONS = True
+    INSTANCE_UNIX_SOCKET = "/cloudsql/devel-12345:europe-central2:devel-sql"
+    INSTANCE_CONNECTION_NAME = "devel-12345:europe-central2:devel-sql"
+    
 
 class DevConfig(Config):
     FLASK_DEBUG = True
