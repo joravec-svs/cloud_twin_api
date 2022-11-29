@@ -100,7 +100,7 @@ class User(UserMixin, db.Model):
         if rolename == "admin":
             return True
         else:
-            return False   
+            return False
 
     def get_token(self, expires_in=3600):
         now = datetime.utcnow()
