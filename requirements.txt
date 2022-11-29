@@ -8,3 +8,4 @@ Flask-HTTPAuth==4.7.0
 Flask_Migrate==3.1.0
 alembic== 1.8.1
 PyMySQL==1.0.2 
+google-cloud-pubsub==2.13.11 

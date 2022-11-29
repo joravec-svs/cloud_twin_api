@@ -5,6 +5,7 @@ from flask import url_for
 from app import db
 from app.api.errors import bad_request
 from app.api.auth import token_auth
+from google.cloud import pubsub_v1
 
 def crossdomain(f):
     def wrapped_function(*args, **kwargs):
@@ -84,4 +85,15 @@ def post_inputdata():
     response = jsonify("ok")
     response.status_code = 201
     #response.headers['Location'] = url_for('api.data', id=inputdata.id)
+    
+    publisher = pubsub_v1.PublisherClient()
+    topic_path = "projects/devel-12345/topics/cloud-twin-fmu"
+    message_bytes = jsondata.encode("utf-8")
+    try:
+        publish_future = publisher.publish(topic_path,data=message_bytes)
+        publish_future.result()
+    except Exception as e:
+        print(e)
+        return(e,500)
+
     return response
