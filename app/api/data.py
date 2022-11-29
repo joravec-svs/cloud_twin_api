@@ -89,10 +89,11 @@ def post_inputdata():
     
     publisher = pubsub_v1.PublisherClient()
     topic_path = "projects/devel-12345/topics/cloud-twin-fmu"
-    jsondata = json.dumps(jsondata)
-    message_bytes = jsondata.encode("utf-8")
+    message = "calculate"
+    #jsondata = json.dumps(jsondata)
+    #message_bytes = jsondata.encode("utf-8")
     try:
-        publish_future = publisher.publish(topic_path,data=message_bytes)
+        publish_future = publisher.publish(topic_path,data=message)
         publish_future.result()
     except Exception as e:
         print(e)
