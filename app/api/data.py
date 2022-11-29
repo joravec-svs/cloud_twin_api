@@ -1,4 +1,5 @@
 from app.api import bp
+import json
 from flask import jsonify, request, make_response
 from app.models import SensorData, VirtualData, InputData
 from flask import url_for
@@ -88,6 +89,7 @@ def post_inputdata():
     
     publisher = pubsub_v1.PublisherClient()
     topic_path = "projects/devel-12345/topics/cloud-twin-fmu"
+    jsondata = json.dumps(jsondata)
     message_bytes = jsondata.encode("utf-8")
     try:
         publish_future = publisher.publish(topic_path,data=message_bytes)
