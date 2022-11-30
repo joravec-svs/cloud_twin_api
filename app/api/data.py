@@ -7,6 +7,7 @@ from app import db
 from app.api.errors import bad_request
 from app.api.auth import token_auth
 from google.cloud import pubsub_v1
+from datetime import datetime
 
 def crossdomain(f):
     def wrapped_function(*args, **kwargs):
@@ -90,6 +91,7 @@ def post_inputdata():
     publisher = pubsub_v1.PublisherClient()
     topic_path = "projects/devel-12345/topics/cloud-twin-fmu"
     sdata = SensorData.query.order_by(SensorData.datetime.desc()).first().to_dict()
+    sdata["datetime"] = sdata["datetime"].timestamp.isoformat(timespec="seconds")
     message = {"inputdata":jsondata,"sensordata":sdata}
     jmessage = json.dumps(message)
     message_bytes = jmessage.encode("utf-8")
