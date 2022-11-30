@@ -91,7 +91,7 @@ def post_inputdata():
     publisher = pubsub_v1.PublisherClient()
     topic_path = "projects/devel-12345/topics/cloud-twin-fmu"
     sdata = SensorData.query.order_by(SensorData.datetime.desc()).first().to_dict()
-    sdata["datetime"] = sdata["datetime"].timestamp.isoformat(timespec="seconds")
+    sdata["datetime"] = sdata["datetime"].isoformat(timespec="seconds")
     message = {"inputdata":jsondata,"sensordata":sdata}
     jmessage = json.dumps(message)
     message_bytes = jmessage.encode("utf-8")
