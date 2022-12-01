@@ -87,15 +87,15 @@ def post_inputdata():
     response = jsonify("ok")
     response.status_code = 201
     #response.headers['Location'] = url_for('api.data', id=inputdata.id)
-    
+
     publisher = pubsub_v1.PublisherClient()
     topic_path = "projects/devel-12345/topics/cloud-twin-fmu"
     sdata = SensorData.query.order_by(SensorData.datetime.desc()).first().to_dict()
     sdata["datetime"] = sdata["datetime"].isoformat(timespec="seconds")
-    message = {"data":"calculateFMU","attributes":{"inputdata":jsondata,"sensordata":sdata},"messageID":sdata["id"],"publishTime":sdata["datetime"]}
+    message = {"data":"calculateFMU","attributes":{"inputdata":jsondata,"sensordata":sdata}}
     jmessage = json.dumps(message)
     message_bytes = jmessage.encode("utf-8")
-    
+
     try:
         publish_future = publisher.publish(topic_path,data=message_bytes)
         publish_future.result()
